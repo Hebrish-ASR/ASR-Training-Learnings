@@ -6,7 +6,7 @@
 
 Front matter (between --- lines, one `key: value` per line; lists as [a, b]):
   title, date (YYYY-MM-DD), models (base model ids), lines (fine-tune lines affected), topic, status.
-The body has three sections: what we saw / question, why / finding, and "What changed in our training".
+The body has three sections: what was seen / question, why / finding, and "What changed in the training".
 """
 import json, re, sys
 from pathlib import Path
@@ -30,7 +30,7 @@ def parse(path):
     if missing:
         raise SystemExit(f"{path.name}: missing {missing}")
     body = m.group(2).strip()
-    eff = re.search(r"## What changed in our training\n+(.*?)(?=\n## |\Z)", body, re.S)
+    eff = re.search(r"## What changed in the training\n+(.*?)(?=\n## |\Z)", body, re.S)
     return {"id": path.stem, **meta, "file": f"learnings/{path.name}", "strategy_effect": eff.group(1).strip() if eff else "",
             "body_md": body}
 

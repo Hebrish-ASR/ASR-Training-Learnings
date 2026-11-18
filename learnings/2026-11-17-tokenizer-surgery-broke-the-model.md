@@ -7,7 +7,7 @@ topic: tokenizer
 status: confirmed (outcome); cause not investigated
 ---
 
-## What we tried
+## What was tried
 
 Eight symbol pieces (`@ & + # ( ) _ =`) were appended to the v2 vocabulary after the existing 1,024, with the blank
 token moved after them and the new output rows trained in one rolling fine-tune, so the model could write email
@@ -19,7 +19,7 @@ The resulting release (Sabich v4.8) produced "no speech" or invented sentences i
 was consistent, so the fault is in the weights or the decoding, not the packaging. It was withdrawn the same evening
 and the previous release restored.
 
-## What changed in our training
+## What changed in the training
 
 Tokenizer surgery is not to be retried on these lines. Symbols stay out of the v2 targets: rows carry the spoken form
 ("at", "underscore", "plus") and a separate full-form target for bases whose tokenizer already has the symbol; a

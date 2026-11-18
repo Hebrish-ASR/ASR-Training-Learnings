@@ -7,12 +7,12 @@ topic: tokenizer
 status: segmentation measured; cause inferred
 ---
 
-## What we saw
+## What was seen
 
 The fine-tuned Sabich wrote "deepgram" and once "Degram" for the brand Deepgram, even when it was said slowly and
 clearly. Every training transcript wrote it as `Deepgram`, so the labels were not the problem.
 
-## Why (as far as we can tell)
+## Why (best explanation so far)
 
 Parakeet TDT 0.6B v2 has a 1,024-piece SentencePiece vocabulary. It has no `Deep` piece, so the two spellings start
 differently:
@@ -31,7 +31,7 @@ examples does not outweigh them. "Degram" is the same path with the `ep` piece d
 How few examples: the word had 21 recorded takes, but only 11 were in the training split (see
 [Test takes don't teach](2026-11-18-test-takes-do-not-teach.md)).
 
-## What changed in our training
+## What changed in the training
 
 Take targets now scale with how hard a word is for this tokenizer, not only with how important it is. A term earns a
 difficulty point for each of: a bare-capital first piece where the lowercase form starts with a longer piece (`case`),

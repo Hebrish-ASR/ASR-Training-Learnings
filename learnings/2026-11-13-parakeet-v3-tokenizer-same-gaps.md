@@ -25,7 +25,7 @@ counts as writable if `a<c>b` encodes without `<unk>` and decodes back unchanged
 
 The extra pieces are European letters, not symbols.
 
-## What changed in our training
+## What changed in the training
 
 Nothing: v2 stays the base for the dictation lines (chosen over v3 earlier from real-use results). Symbols are
 handled by spoken-form targets plus formatting after decoding (see

@@ -38,7 +38,7 @@ status: confirmed | measured; cause inferred | observed in use | inferred
 ---
 ```
 
-Then three sections: what was seen (or the question), why (or the finding), and `## What changed in our training`.
+Then three sections: what was seen (or the question), why (or the finding), and `## What changed in the training`.
 `python3 scripts/build_index.py` rebuilds the table above and `learnings.json` (read by the hebrish.app page). A newer
 finding on the same question is a new dated entry; old entries are not rewritten.
 

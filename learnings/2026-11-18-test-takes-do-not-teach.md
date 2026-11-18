@@ -7,7 +7,7 @@ topic: data
 status: counts measured; split mechanism inferred
 ---
 
-## What we saw
+## What was seen
 
 Of 21 takes of "Deepgram", 10 were in the test split, which is never trained on. The recording app counted all 21
 toward the word's target of 20, so it stopped serving the word as done while the model had seen it only 11 times.
@@ -17,13 +17,13 @@ toward the word's target of 20, so it stopped serving the word as done while the
 The sentence bank's split is term-disjoint: a term picked for evaluation sends every sentence containing it to test.
 Two things moved takes into test that should have trained:
 
-- A take keeps the split its sentence had when it was recorded. Words later exempted from the hold-out (we exempt
-  words the model is known to get wrong) kept their earlier test takes.
+- A take keeps the split its sentence had when it was recorded. Words later exempted from the hold-out (words
+  the model is known to get wrong are exempt) kept their earlier test takes.
 - Compound terms held out for evaluation ("Deepgram Nova", "Deepgram Aura") take the shorter word with them.
 
 Across all tracked terms, 15,910 takes of target words sat in test on 2026-11-18.
 
-## What changed in our training
+## What changed in the training
 
 Each word's target is now its training target plus its current test takes, so the app keeps serving it until the
 training split alone has enough. The audit is rerun before every training run, because new test takes keep arriving.

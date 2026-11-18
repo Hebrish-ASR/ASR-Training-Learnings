@@ -7,7 +7,7 @@ topic: tokenizer
 status: confirmed
 ---
 
-## What we saw
+## What was seen
 
 An early Sabich wrote `<unk>` at clause breaks in real dictation. The training data held 22 semicolons.
 
@@ -17,7 +17,7 @@ A character missing from the model's vocabulary tokenizes to `<unk>`, and fine-t
 Parakeet v2 cannot write `; " “ ” ’ — – ( ) & + @ _` or some accented capitals; the Nemotron streaming base cannot
 write any accented letter. Measured on the tokenizers themselves: of 699 candidate characters, v2 can write 205.
 
-## What changed in our training
+## What changed in the training
 
 Every training transcript uses only ASCII letters, digits, spaces, `. , ? ! ' : - / % $`, `£` and `€`. Anything else
 is mapped before training: `;` and dashes to a comma, `&` to "and", `+` to "plus", curly apostrophes to `'`, quotes
